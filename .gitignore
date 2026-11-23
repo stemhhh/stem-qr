@@ -30,3 +30,12 @@ node_modules/
 bin/
 obj/
 artifacts/
+dist/
+build/
+.release/
+release/win-unpacked/
+*.appx
+TestResults/
+.wrangler/
+*.user
+AppPackages/
