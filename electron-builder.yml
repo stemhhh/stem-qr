@@ -1,0 +1,50 @@
+appId: Stem.STEMQR
+productName: STEM QR
+copyright: Copyright © Stem
+artifactName: ${productName}-${version}-${os}-${arch}.${ext}
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - electron/**/*
+extraMetadata:
+  main: electron/main.cjs
+asar: true
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: appx
+      arch:
+        - x64
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: STEM QR
+  uninstallDisplayName: STEM QR
+  installerLanguages:
+    - es_ES
+  language: 3082
+appx:
+  applicationId: StemQR
+  identityName: Stem.STEMQR
+  publisher: CN=CCECE44A-7E72-4252-ACEA-59D29765B443
+  publisherDisplayName: Stem
+  displayName: STEM QR
+  languages:
+    - es-ES
+    - es-MX
+    - en-US
+    - pt-BR
+    - fr-FR
+  showNameOnTiles: true
+  setBuildNumber: true
+  # Partner Center rejects MSIX with MinVersion <= 10.0.17134.0
+  minVersion: 10.0.17763.0
+  maxVersionTested: 10.0.26100.0

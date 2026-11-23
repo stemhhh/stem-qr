@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="STEM QR: genera códigos QR personalizados en Windows / custom QR codes for Windows."
+    />
+    <title>STEM QR</title>
+    <script>
+      (() => {
+        try {
+          const theme =
+            localStorage.getItem('stem-qr-theme') ||
+            localStorage.getItem('estudio-qr-theme') ||
+            'dark'
+          const dark =
+            theme === 'dark' ||
+            (theme === 'system' &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches)
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+          const locale =
+            localStorage.getItem('stem-qr-locale') ||
+            localStorage.getItem('estudio-qr-locale')
+          if (locale === 'en' || locale === 'es') {
+            document.documentElement.lang = locale
+          }
+        } catch (_) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
